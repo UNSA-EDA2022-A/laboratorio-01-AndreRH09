@@ -34,6 +34,6 @@ public class Exercise1 {
 	}
 	
 	public static int sToNum(String fig,int i) {
-		Integer.parseInt(fig.substring(i,i+1));
+		return Integer.parseInt(fig.substring(i,i+1));
 	}
 }
