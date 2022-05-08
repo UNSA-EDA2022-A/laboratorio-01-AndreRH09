@@ -22,20 +22,18 @@ public class Exercise1 {
 		double aux;
 
 		for (int i = 0; i < fig.length(); i++) {
-		    aux = fig.length()-i;
-
-		    if((sig>0 && num(fig,i) > 0) || num(fig,i)>2)
-			return "El numero proporcionado no esta en base Gabriel.";
-		    if(num(fig, i) == 2)
-			sig++;
-
-		    result = (num(fig, i)*((Math.pow(2, aux))-1))+result;
+			aux = fig.length()-i;
+			
+			if((sig>0 && sToNum(fig,i) > 0) || sToNum(fig,i)>2 || sToNum(fig,0) == 2)
+				return "El numero proporcionado no esta en base Gabriel.";
+			if(sToNum(fig, i) == 2)
+				sig++;
+			result = (sToNum(fig, i)*((Math.pow(2, aux))-1))+result;
 		}
-
 		return Integer.toString((int)result);
-	    }
+	}
 	
-	public static int num(String fig,int i) {
-		return Integer.parseInt(fig.substring(i,i+1));
+	public static int sToNum(String fig,int i) {
+		Integer.parseInt(fig.substring(i,i+1));
 	}
 }
