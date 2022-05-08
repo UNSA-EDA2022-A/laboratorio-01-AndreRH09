@@ -19,10 +19,26 @@ public class Exercise2 {
 			System.out.println(obj.getMenorNumeroSaltos(a));			
 		}
 	}
-
 	public Integer getMenorNumeroSaltos(int a []) {
+		int aux = 0;
+		int saltos = 0;
+		int i;
 
-		// TO DO
+		for (i = (a.length - 1); i >= 0 ; i--) {
+
+		    if(a[i] > a[i-1]+50)
+			return -1;
+
+
+		    if(aux + 50  >= a[a.length - 1])
+			return ++saltos;
+
+		    if(aux + 50 >= a[i]){
+			saltos++;
+			aux= a[i];
+			i = a.length ;
+		    }
+		}
 		return -1;
-	}
+	    }
 }

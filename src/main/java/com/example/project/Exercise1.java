@@ -13,10 +13,27 @@ public class Exercise1 {
 			System.out.println(obj.convertirBaseGabriel(n));			
 		}
 	}
-
+	
+	
 	public String convertirBaseGabriel(int a) {
+		int sig = 0;
+		String fig = Integer.toString(a);
+		double result=0;
+		double aux;
 
-		// TO DO
-		return "El numero proporcionado no esta en base Gabriel.";
+		for (int i = 0; i < fig.length(); i++) {
+			aux = fig.length()-i;
+			
+			if((sig>0 && sToNum(fig,i) > 0) || sToNum(fig,i)>2 || sToNum(fig,0) == 2)
+				return "El numero proporcionado no esta en base Gabriel.";
+			if(sToNum(fig, i) == 2)
+				sig++;
+			result = (sToNum(fig, i)*((Math.pow(2, aux))-1))+result;
+		}
+		return Integer.toString((int)result);
+	}
+	
+	public static int sToNum(String fig,int i) {
+		return Integer.parseInt(fig.substring(i,i+1));
 	}
 }
